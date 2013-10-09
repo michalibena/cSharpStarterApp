@@ -6,7 +6,13 @@ namespace cSharpStarterApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int loopLength = 5;
+            int i;
+
+            for (i = 0; i < loopLength; i++)
+            {
+                Console.WriteLine("Hello, World!");
+            }
         }
     }
 }
