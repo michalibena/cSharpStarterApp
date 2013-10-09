@@ -11,7 +11,10 @@ namespace cSharpStarterApp
 
             for (i = 0; i < loopLength; i++)
             {
-                Console.WriteLine("Hello, World!");
+                if ((i % 2) == 0)
+                {
+                    Console.WriteLine(i + ": Hello, World!");
+                }
             }
         }
     }
