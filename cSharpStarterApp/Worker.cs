@@ -72,6 +72,9 @@ namespace cSharpStarterApp
                 sb.Remove(0, sb.Length);
             }
 
+            Employee emp1 = new Employee(1, "John", "Smith");
+            outfile.WriteLine(emp1.ToString());
+
             outfile.Close();
         }
 
