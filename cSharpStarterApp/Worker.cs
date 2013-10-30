@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 
 namespace cSharpStarterApp
 {
@@ -7,6 +9,10 @@ namespace cSharpStarterApp
         // class fields/members
         int _count;
         string _message;
+        FileInfo wFile;
+        string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string wFileName;
+        StreamWriter outfile;
 
         // class properties
         int Count
@@ -39,6 +45,8 @@ namespace cSharpStarterApp
         {
             Count = count;
             Message = message;
+            wFileName = myDocPath + @"\worker.txt";
+            wFile = new FileInfo(wFileName);
         }
 
         // setters - if not using properties
@@ -51,10 +59,20 @@ namespace cSharpStarterApp
 
         public void doWork()
         {
+            StringBuilder sb = new StringBuilder();
+            outfile = new StreamWriter(wFileName);
+
             for (int i = 0; i < Count; i++)
             {
-                Console.WriteLine(i + ": "+ Message);
+                sb.Append(i);
+                sb.Append(": ");
+                sb.Append(Message);
+                Console.WriteLine(sb.ToString());
+                outfile.WriteLine(sb.ToString());
+                sb.Remove(0, sb.Length);
             }
+
+            outfile.Close();
         }
 
         public override string ToString()
